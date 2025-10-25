@@ -1,0 +1,52 @@
+namespace ConsoleApp35
+{
+   public class Employee
+    {
+        //поля
+        public string Name;
+        public double Salary;
+        // общий констурктор
+        public Employee(string name, double salary) 
+        {
+            this.Name = name;
+            this.Salary = salary;
+        }
+        //конструктор для имени 
+        public Employee(string name) : this (name, 50000) 
+        { 
+
+        }
+        public void Work()
+        {
+            Console.WriteLine($"{Name}, работает с зарплатой: {Salary}");
+        }
+        //установка зарплаты и проверка 
+        public void SetSalary(double salary)
+        {
+            if (salary < 0)
+            {
+                Console.WriteLine("Ошибка! Зарплата не может быть отрицательной");
+            }
+            else
+            {
+                this.Salary = salary;
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee employee1 = new Employee("Иван");
+            Employee employee2 = new Employee("Анна", 60000);
+
+            employee1.Work();
+            employee2.Work();
+            // задаю отрицательную зп
+            employee1.SetSalary(-1000);
+            employee1.SetSalary(40000);
+            // проверяю обнавленную зп
+            employee1.Work();
+        }
+    }
+}
