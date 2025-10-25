@@ -1,0 +1,67 @@
+namespace Task_1
+{
+    internal class Book
+    {
+        private String title;
+        private int pages;
+        //поля
+        public string Title
+        {
+            get { return title; }
+            set { title = value; }
+        }
+        public int Pages
+        {
+            get { return pages; }
+            set
+            {
+                if (value < 1 || value > 5000)
+                {
+                    Console.WriteLine("Колличество страниц должно быть от 1 до 5000");
+                }
+                pages = value;
+            }
+        }
+        public Book(String title, int pages)
+        {
+            this.title = title;
+            this.pages = pages;
+        }
+        // конструктор только с title
+        public Book(String title) : this(title, 100)
+        {
+
+        }
+        // конструктор 
+        public Book() : this("'без названия'", 1)
+        {
+
+        }
+        public void Read()
+        {
+            Console.WriteLine($"Название книги: '{Title}',колличество страниц: {Pages}");
+        }
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            // разные конструкторы 
+            Book book1 = new Book("'Война и мир'", 1200);
+            Book book2 = new Book("'1984'");
+            Book book3 = new Book();
+            book1.Read();
+            book2.Read();
+            book3.Read();
+            book1.Pages = 0;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+}
+
