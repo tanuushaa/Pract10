@@ -1,0 +1,52 @@
+namespace ConsoleApp37
+{
+    class Point
+    { // поля
+        private double x;
+        private double y;
+        // свойствадля доступа к полям 
+        public double X
+        { 
+            get { return x; } 
+            set { x = value; } 
+        }
+        public double Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
+        // констурктор с 2 параметрами 
+        public Point(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+        // конструктор с 1 параметром
+        public Point(double value) : this(value, value)
+        {
+
+        }
+        // конструктор без параметров 
+        public Point() : this(0,0)
+        {
+
+        }
+        // отображение координат
+        public void Show()
+        {
+            Console.WriteLine($"Точка: ({x}, {y})");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args) 
+        { 
+            Point p1 = new Point(3.5, 7.2);
+            p1.Show();
+            Point p2 = new Point(5, 5);
+            p2.Show();
+            Point p3 = new Point();
+            p3.Show();
+        }
+    }
+}
